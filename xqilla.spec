@@ -1,5 +1,4 @@
 # $Revision: 1.21 $, $Date: 2011/07/16 18:25:43 $
-# TODO: faxpp
 #
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
@@ -17,6 +16,7 @@ Patch0:		%{name}-link.patch
 URL:		http://xqilla.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
+BuildRequires:	faxpp-devel
 BuildRequires:	flex
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
@@ -36,6 +36,7 @@ Summary:	Header files for XQilla library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki XQilla
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	faxpp-devel
 Requires:	libstdc++-devel
 Requires:	tidy-devel
 Requires:	xerces-c-devel >= 3
@@ -80,6 +81,7 @@ Dokumentacja API biblioteki XQilla.
 %{__autoheader}
 %{__automake}
 %configure \
+	--with-faxpp=/usr \
 	--with-xerces=/usr
 
 %{__make}
