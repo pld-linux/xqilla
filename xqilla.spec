@@ -1,4 +1,3 @@
-# $Revision: 1.21 $, $Date: 2011/07/16 18:25:43 $
 #
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
