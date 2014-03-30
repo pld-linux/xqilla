@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
-#
+
 Summary:	XQilla - C++ implementation of XQuery and XPath 2.0 based on Xerces-C
 Summary(pl.UTF-8):	XQilla - implementacja C++ XQuary i XPath 2.0 oparta na bibliotece Xerces-C
 Name:		xqilla
 Version:	2.3.0
-Release:	4
+Release:	5
 License:	Apache v2.0
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/xqilla/XQilla-%{version}.tar.gz
@@ -62,6 +62,9 @@ Statyczna biblioteka XQilla.
 Summary:	XQilla API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki XQilla
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API and internal documentation for XQilla library.
@@ -87,7 +90,6 @@ Dokumentacja API biblioteki XQilla.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
