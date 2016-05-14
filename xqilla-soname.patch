@@ -1,11 +1,11 @@
---- XQilla-2.3.2/Makefile.am.orig	2016-01-29 20:21:46.349549168 +0100
-+++ XQilla-2.3.2/Makefile.am	2016-01-29 20:52:35.932804878 +0100
+--- XQilla-2.3.3/Makefile.am.orig	2016-05-14 10:35:38.767625802 +0200
++++ XQilla-2.3.3/Makefile.am	2016-05-14 10:36:21.874290660 +0200
 @@ -17,7 +17,7 @@
  
  # Library version, see http://sourceware.org/autobook/autobook/autobook_91.html
  # -no-undefined for Cygwin (bug #1639669)
--libxqilla_la_LDFLAGS = -version-info 6:0:2 -no-undefined
-+libxqilla_la_LDFLAGS = -version-info 6:2:0 -no-undefined
+-libxqilla_la_LDFLAGS = -version-info 6:0:3 -no-undefined
++libxqilla_la_LDFLAGS = -version-info 6:3:0 -no-undefined
  
  libxqilla_la_SOURCES = \
  src/framework/ReferenceCounted.cpp \
