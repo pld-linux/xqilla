@@ -5,19 +5,14 @@
 Summary:	XQilla - C++ implementation of XQuery and XPath 2.0 based on Xerces-C
 Summary(pl.UTF-8):	XQilla - implementacja C++ XQuary i XPath 2.0 oparta na bibliotece Xerces-C
 Name:		xqilla
-Version:	2.3.3
-Release:	3
+Version:	2.3.4
+Release:	1
 License:	Apache v2.0
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/xqilla/XQilla-%{version}.tar.gz
-# Source0-md5:	8ece20348687b6529bb934c17067803c
+# Source0-md5:	9b77644c8b0d0741d895d3ccfbfe0016
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-soname.patch
-# https://sourceforge.net/p/xqilla/bugs/48/
-# https://sourceforge.net/p/xqilla/bugs/48/attachment/patch-src_dom-api_impl_XPathDocumentImpl.cpp
-Patch2:		%{name}-xerces-1.patch
-# https://sourceforge.net/p/xqilla/bugs/48/attachment/patch-src_dom-api_impl_XPathNamespaceImpl.cpp
-Patch3:		%{name}-xerces-2.patch
 URL:		http://xqilla.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -25,6 +20,7 @@ BuildRequires:	faxpp-devel
 BuildRequires:	flex
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tidy-devel
 BuildRequires:	xerces-c-devel >= 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -68,9 +64,7 @@ Statyczna biblioteka XQilla.
 Summary:	XQilla API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki XQilla
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description apidocs
 API and internal documentation for XQilla library.
@@ -82,12 +76,10 @@ Dokumentacja API biblioteki XQilla.
 %setup -q -n XQilla-%{version}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p0
-%patch3 -p0
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I autotools/m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
