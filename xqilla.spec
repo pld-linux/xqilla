@@ -64,7 +64,7 @@ Statyczna biblioteka XQilla.
 Summary:	XQilla API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki XQilla
 Group:		Documentation
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 API and internal documentation for XQilla library.
