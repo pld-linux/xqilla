@@ -6,13 +6,14 @@ Summary:	XQilla - C++ implementation of XQuery and XPath 2.0 based on Xerces-C
 Summary(pl.UTF-8):	XQilla - implementacja C++ XQuary i XPath 2.0 oparta na bibliotece Xerces-C
 Name:		xqilla
 Version:	2.3.4
-Release:	2
+Release:	3
 License:	Apache v2.0
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/xqilla/XQilla-%{version}.tar.gz
 # Source0-md5:	9b77644c8b0d0741d895d3ccfbfe0016
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-soname.patch
+Patch2:		%{name}-gcc11.patch
 URL:		http://xqilla.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -77,6 +78,7 @@ Dokumentacja API biblioteki XQilla.
 %setup -q -n XQilla-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}

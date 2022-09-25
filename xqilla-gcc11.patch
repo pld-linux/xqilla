@@ -1,0 +1,11 @@
+--- XQilla-2.3.4/include/xqilla/ast/XQDocumentOrder.hpp.orig	2018-07-03 20:37:15.000000000 +0200
++++ XQilla-2.3.4/include/xqilla/ast/XQDocumentOrder.hpp	2022-09-25 20:51:54.768846899 +0200
+@@ -68,7 +68,7 @@ private:
+   public:
+     uniqueLessThanCompareFn(const DynamicContext *context)
+       : context_(context) {}
+-    bool operator()(const Node::Ptr &first, const Node::Ptr &second)
++    bool operator()(const Node::Ptr &first, const Node::Ptr &second) const
+     {
+       return first->uniqueLessThan(second, context_);
+     }
